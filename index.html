@@ -10,14 +10,14 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   :root {
-    --green: #00aaff;
-    --green-dim: #0088cc;
-    --green-dark: #001a33;
+    --green: #00ff41;
+    --green-dim: #00cc33;
+    --green-dark: #003b00;
     --bg: #0a0a0a;
   }
 
   body {
-    background: radial-gradient(ellipse at center, #0d1520 0%, #050a12 50%, #000000 100%);
+    background: radial-gradient(ellipse at center, #0d1a0d 0%, #050a05 50%, #000000 100%);
     color: var(--green);
     font-family: 'Share Tech Mono', 'Courier New', monospace;
     height: 100vh;
@@ -128,7 +128,7 @@
   }
 
   .glow {
-    text-shadow: 0 0 8px rgba(0, 170, 255, 0.4);
+    text-shadow: 0 0 8px rgba(0, 255, 65, 0.4);
   }
 
   /* Typing indicator */
@@ -210,7 +210,7 @@
   #send-btn:hover {
     background: var(--green-dark);
     border-color: var(--green);
-    text-shadow: 0 0 8px rgba(0, 170, 255, 0.6);
+    text-shadow: 0 0 8px rgba(0, 255, 65, 0.6);
   }
 
   #send-btn:active {
@@ -265,7 +265,7 @@
 
 <div class="terminal">
   <div class="terminal-header">
-    <span>MATRIX TERMINAL v2.053</span>
+    <span>MATRIX TERMINAL v2.054</span>
     <span id="session-id"></span>
   </div>
   <div class="messages" id="messages"></div>
@@ -310,20 +310,20 @@ let isWaiting = false;
   const drops = Array(columns).fill(1);
 
   function draw() {
-    ctx.fillStyle = 'rgba(0, 5, 15, 0.06)';
+    ctx.fillStyle = 'rgba(0, 5, 0, 0.06)';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     ctx.font = `${fontSize}px monospace`;
 
     for (let i = 0; i < drops.length; i++) {
       const char = chars[Math.floor(Math.random() * chars.length)];
       // Bright head of the drop
-      ctx.fillStyle = '#aaccff';
-      ctx.shadowColor = '#00aaff';
+      ctx.fillStyle = '#aaffaa';
+      ctx.shadowColor = '#00ff41';
       ctx.shadowBlur = 10;
       ctx.fillText(char, i * fontSize, drops[i] * fontSize);
       // Dimmer trail character just above
       ctx.shadowBlur = 0;
-      ctx.fillStyle = '#00aaff';
+      ctx.fillStyle = '#00ff41';
       const trailChar = chars[Math.floor(Math.random() * chars.length)];
       ctx.fillText(trailChar, i * fontSize, (drops[i] - 1) * fontSize);
 
@@ -449,7 +449,7 @@ document.getElementById('input-form').addEventListener('submit', (e) => {
 // ─── BOOT SEQUENCE ────────────────────────────────────────────────────
 (async function boot() {
   const lines = [
-    '[BOOT] Initializing MATRIX TERMINAL v2.053...',
+    '[BOOT] Initializing MATRIX TERMINAL v2.054...',
     '[BOOT] Loading neural interface drivers......... OK',
     '[BOOT] Establishing encrypted tunnel............ OK',
     '[BOOT] Synchronizing with mainframe............. OK',
